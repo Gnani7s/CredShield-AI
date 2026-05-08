@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1e2535; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #252d42; }
+}
+
+@layer components {
+  .card { @apply bg-[#111520] border border-[#1e2535] rounded-xl; }
+  .card-hover { @apply hover:border-[#252d42] transition-colors duration-200; }
+  .input-field {
+    @apply w-full bg-[#0d1018] border border-[#1e2535] rounded-lg px-4 py-3 text-white placeholder-[#4a5468]
+           text-sm font-mono focus:outline-none focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff]/20
+           transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-[#00d4ff] hover:bg-[#00b8d9] text-[#07090f] font-semibold rounded-lg px-6 py-3
+           transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed
+           text-sm tracking-wide;
+  }
+  .btn-secondary {
+    @apply bg-transparent border border-[#1e2535] hover:border-[#252d42] text-[#8892a4] hover:text-white
+           rounded-lg px-6 py-3 text-sm transition-all duration-200;
+  }
+  .btn-danger {
+    @apply bg-transparent border border-[#ff4757]/30 hover:border-[#ff4757] hover:bg-[#ff4757]/10
+           text-[#ff4757] rounded-lg px-4 py-2 text-sm transition-all duration-200;
+  }
+  .risk-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono font-bold;
+  }
+  .risk-safe { @apply bg-[#00e676]/10 text-[#00e676] border border-[#00e676]/20; }
+  .risk-low { @apply bg-[#ffd32a]/10 text-[#ffd32a] border border-[#ffd32a]/20; }
+  .risk-medium { @apply bg-[#ff8c42]/10 text-[#ff8c42] border border-[#ff8c42]/20; }
+  .risk-high { @apply bg-[#ff6b35]/10 text-[#ff6b35] border border-[#ff6b35]/20; }
+  .risk-critical { @apply bg-[#ff4757]/10 text-[#ff4757] border border-[#ff4757]/20; }
+  .mono { font-family: 'Space Mono', monospace; }
+  .scanline {
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px);
+    pointer-events: none;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
